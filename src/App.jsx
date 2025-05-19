@@ -6,11 +6,20 @@ function App() {
   const [lista, setLista] = useState([])
 
   const agregarProducto = () => {
-    if (producto.trim() === '' || precio.trim() === '') return
+    const precioNumerico = parseFloat(precio)
+
+    if (
+      producto.trim() === '' ||
+      precio.trim() === '' ||
+      isNaN(precioNumerico) ||
+      precioNumerico <= 0
+    ) {
+      return
+    }
 
     const nuevoItem = {
       nombre: producto,
-      precio: parseFloat(precio),
+      precio: precioNumerico,
     }
 
     setLista([...lista, nuevoItem])
@@ -50,11 +59,11 @@ function App() {
           <li key={index} style={{ marginBottom: '0.5rem' }}>
             🛒 {item.nombre} - {item.precio.toFixed(2)} €
             <button
-        onClick={() => eliminarProducto(index)}
-        style={{ marginLeft: '1rem' }}
-      >
-        🗑️
-      </button>
+              onClick={() => eliminarProducto(index)}
+              style={{ marginLeft: '1rem' }}
+            >
+              🗑️
+            </button>
           </li>
         ))}
       </ul>
