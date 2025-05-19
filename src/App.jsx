@@ -18,6 +18,10 @@ function App() {
     setPrecio('')
   }
 
+  const eliminarProducto = (indexAEliminar) => {
+    setLista(lista.filter((_, index) => index !== indexAEliminar))
+  }
+
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
       <h1>🍽️ Come y Calla</h1>
@@ -43,8 +47,14 @@ function App() {
 
       <ul style={{ marginTop: '1rem' }}>
         {lista.map((item, index) => (
-          <li key={index}>
+          <li key={index} style={{ marginBottom: '0.5rem' }}>
             🛒 {item.nombre} - {item.precio.toFixed(2)} €
+            <button
+        onClick={() => eliminarProducto(index)}
+        style={{ marginLeft: '1rem' }}
+      >
+        🗑️
+      </button>
           </li>
         ))}
       </ul>
