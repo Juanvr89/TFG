@@ -8,6 +8,7 @@ function App() {
   const [historial, setHistorial] = useState([])
   const [cargadoInicial, setCargadoInicial] = useState(false)
 
+  // Cargar al iniciar
   useEffect(() => {
     const datosLista = localStorage.getItem('listaCompra')
     const datosBase = localStorage.getItem('baseProductos')
@@ -20,6 +21,7 @@ function App() {
     setCargadoInicial(true)
   }, [])
 
+  // Guardar solo después de cargar
   useEffect(() => {
     if (cargadoInicial) {
       localStorage.setItem('listaCompra', JSON.stringify(lista))
@@ -94,7 +96,6 @@ function App() {
     setLista([])
   }
 
-  // Nueva función para borrar toda la lista
   const borrarListaCompleta = () => {
     setLista([])
   }
@@ -104,7 +105,9 @@ function App() {
       <h1>🍽️ Come y Calla</h1>
 
       <div style={{ marginTop: '1rem' }}>
-        <h2>➕ Añadir a base de productos</h2>
+        <p style={{ fontSize: '1rem', color: '#666', marginBottom: '0.5rem' }}>
+          Añadir nuevo producto a la base de datos:
+        </p>
         <input
           type="text"
           placeholder="Producto"
@@ -120,7 +123,18 @@ function App() {
           onKeyPress={handleKeyPress}
           style={{ marginLeft: '0.5rem' }}
         />
-        <button onClick={agregarABase} style={{ marginLeft: '0.5rem' }}>
+        <button
+          onClick={agregarABase}
+          style={{
+            marginLeft: '0.5rem',
+            borderRadius: '30px',
+            padding: '0.5rem 1rem',
+            backgroundColor: '#1976d2',
+            color: 'white',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+        >
           Agregar a base de datos
         </button>
       </div>
@@ -135,7 +149,7 @@ function App() {
                 onClick={() => agregarALista(item)}
                 style={{ marginLeft: '1rem' }}
               >
-               al carrito ⤵️​
+                al carrito ⤵️
               </button>
               <button
                 onClick={() => eliminarProductoBase(index)}
@@ -184,7 +198,6 @@ function App() {
           ✅ Compra realizada
         </button>
 
-        {/* Botón nuevo para borrar toda la lista */}
         <button
           onClick={borrarListaCompleta}
           style={{
