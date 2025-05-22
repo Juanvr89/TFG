@@ -5,10 +5,9 @@ function App() {
   const [precio, setPrecio] = useState('')
   const [lista, setLista] = useState([])
   const [baseProductos, setBaseProductos] = useState([])
-  const [historial, setHistorial] = useState([]) // 🆕
+  const [historial, setHistorial] = useState([])
   const [cargadoInicial, setCargadoInicial] = useState(false)
 
-  // Cargar datos guardados al iniciar
   useEffect(() => {
     const datosLista = localStorage.getItem('listaCompra')
     const datosBase = localStorage.getItem('baseProductos')
@@ -21,7 +20,6 @@ function App() {
     setCargadoInicial(true)
   }, [])
 
-  // Guardar cambios
   useEffect(() => {
     if (cargadoInicial) {
       localStorage.setItem('listaCompra', JSON.stringify(lista))
@@ -66,6 +64,12 @@ function App() {
     setPrecio('')
   }
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      agregarABase()
+    }
+  }
+
   const eliminarProductoLista = (index) => {
     setLista(lista.filter((_, i) => i !== index))
   }
@@ -90,11 +94,15 @@ function App() {
     setLista([])
   }
 
+  // Nueva función para borrar toda la lista
+  const borrarListaCompleta = () => {
+    setLista([])
+  }
+
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
       <h1>🍽️ Come y Calla</h1>
 
-      {/* Sección: Añadir nuevo producto a la base */}
       <div style={{ marginTop: '1rem' }}>
         <h2>➕ Añadir a base de productos</h2>
         <input
@@ -102,20 +110,21 @@ function App() {
           placeholder="Producto"
           value={producto}
           onChange={(e) => setProducto(e.target.value)}
+          onKeyPress={handleKeyPress}
         />
         <input
           type="number"
           placeholder="Precio (€)"
           value={precio}
           onChange={(e) => setPrecio(e.target.value)}
+          onKeyPress={handleKeyPress}
           style={{ marginLeft: '0.5rem' }}
         />
         <button onClick={agregarABase} style={{ marginLeft: '0.5rem' }}>
-          Agregar a base
+          Agregar a base de datos
         </button>
       </div>
 
-      {/* Sección: Base de productos */}
       <div style={{ marginTop: '2rem' }}>
         <h2>📦 Productos disponibles</h2>
         <ul>
@@ -126,7 +135,7 @@ function App() {
                 onClick={() => agregarALista(item)}
                 style={{ marginLeft: '1rem' }}
               >
-                ➕ a lista
+               al carrito ⤵️​
               </button>
               <button
                 onClick={() => eliminarProductoBase(index)}
@@ -139,7 +148,6 @@ function App() {
         </ul>
       </div>
 
-      {/* Sección: Lista de la compra */}
       <div style={{ marginTop: '2rem' }}>
         <h2>🛒 Lista de la compra</h2>
         <ul>
@@ -162,9 +170,34 @@ function App() {
 
         <button
           onClick={compraRealizada}
-          style={{ marginTop: '1rem', backgroundColor: '#4CAF50', color: 'white', padding: '0.5rem 1rem', border: 'none', borderRadius: '5px' }}
+          style={{
+            marginTop: '1rem',
+            backgroundColor: '#4CAF50',
+            color: 'white',
+            padding: '0.5rem 1rem',
+            border: 'none',
+            borderRadius: '30px',
+            marginRight: '1rem',
+            cursor: 'pointer',
+          }}
         >
           ✅ Compra realizada
+        </button>
+
+        {/* Botón nuevo para borrar toda la lista */}
+        <button
+          onClick={borrarListaCompleta}
+          style={{
+            marginTop: '1rem',
+            backgroundColor: '#f44336',
+            color: 'white',
+            padding: '0.5rem 1rem',
+            border: 'none',
+            borderRadius: '30px',
+            cursor: 'pointer',
+          }}
+        >
+          🗑️ Borrar toda la lista
         </button>
       </div>
     </div>
