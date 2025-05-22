@@ -1,9 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
   const [producto, setProducto] = useState('')
   const [precio, setPrecio] = useState('')
   const [lista, setLista] = useState([])
+  const [cargadoInicial, setCargadoInicial] = useState(false) // 👈 nuevo estado
+
+  // Cargar lista guardada al iniciar
+  useEffect(() => {
+    const datosGuardados = localStorage.getItem('listaCompra')
+    if (datosGuardados) {
+      setLista(JSON.parse(datosGuardados))
+    }
+    setCargadoInicial(true) // ✅ solo guardaremos después de esto
+  }, [])
+
+  // Guardar lista cada vez que cambie, solo si ya fue cargada
+  useEffect(() => {
+    if (cargadoInicial) {
+      localStorage.setItem('listaCompra', JSON.stringify(lista))
+    }
+  }, [lista, cargadoInicial])
 
   const agregarProducto = () => {
     const precioNumerico = parseFloat(precio)
