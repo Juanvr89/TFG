@@ -1,3 +1,7 @@
+Avance del proyecto
+https://docs.google.com/document/d/174vfjJS5N0HD-Gzd0NVhxjQHAuAhVN7mw-mvqnQCfKY/edit?usp=sharing
+
+
 # TFG
 
 Mayormente quiero que se base en algo que voy a necesitar yo, o en algo que me gustaría tener, como podría ser:
