@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const categoriasPredefinidas = [
+const categoriasPredefinidasIniciales = [
   'bebidas',
   'carnes y pescados',
   'despensa y enlatados',
@@ -20,22 +20,29 @@ function App() {
   const [fecha, setFecha] = useState('')
   const [unidades, setUnidades] = useState(1)
   const [categoria, setCategoria] = useState('')
+  const [nuevaCategoria, setNuevaCategoria] = useState('')
+  const [categoriasPredefinidas, setCategoriasPredefinidas] = useState(categoriasPredefinidasIniciales)
   const [lista, setLista] = useState([])
   const [baseProductos, setBaseProductos] = useState([])
   const [historial, setHistorial] = useState([])
   const [cargadoInicial, setCargadoInicial] = useState(false)
   const [vistaActual, setVistaActual] = useState('lista')
   const [editarIndex, setEditarIndex] = useState(null)
-  const [busqueda, setBusqueda] = useState('') // NUEVO
+  const [busqueda, setBusqueda] = useState('')
 
   useEffect(() => {
     const datosLista = localStorage.getItem('listaCompra')
     const datosBase = localStorage.getItem('baseProductos')
     const datosHistorial = localStorage.getItem('historialCompras')
+    const categoriasGuardadas = localStorage.getItem('categoriasExtra')
 
     if (datosLista) setLista(JSON.parse(datosLista))
     if (datosBase) setBaseProductos(JSON.parse(datosBase))
     if (datosHistorial) setHistorial(JSON.parse(datosHistorial))
+    if (categoriasGuardadas) {
+      const extras = JSON.parse(categoriasGuardadas)
+      setCategoriasPredefinidas([...categoriasPredefinidasIniciales, ...extras])
+    }
 
     setCargadoInicial(true)
   }, [])
@@ -52,20 +59,29 @@ function App() {
     const precioNumerico = parseFloat(precio)
     const unidadesNumericas = parseInt(unidades)
 
+    const categoriaFinal = nuevaCategoria.trim() !== '' ? nuevaCategoria.trim() : categoria.trim()
+
     if (
       producto.trim() === '' ||
       isNaN(precioNumerico) || precioNumerico <= 0 ||
       unidadesNumericas <= 0
     ) return
 
+    // Si es nueva categoría, la añadimos
+    if (nuevaCategoria.trim() !== '' && !categoriasPredefinidas.includes(nuevaCategoria.trim())) {
+      const nuevas = [...categoriasPredefinidas, nuevaCategoria.trim()]
+      setCategoriasPredefinidas(nuevas)
+      localStorage.setItem('categoriasExtra', JSON.stringify(nuevas.filter(cat => !categoriasPredefinidasIniciales.includes(cat))))
+    }
+
     const nuevoProducto = {
       nombre: producto,
       precio: precioNumerico,
-      imagen: imagen.trim(),
+      imagen: imagen,
       local: local.trim(),
       fecha: fecha.trim(),
       unidades: unidadesNumericas,
-      categoria: categoria.trim()
+      categoria: categoriaFinal
     }
 
     if (editarIndex !== null) {
@@ -84,10 +100,22 @@ function App() {
     setFecha('')
     setUnidades(1)
     setCategoria('')
+    setNuevaCategoria('')
   }
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') agregarABase()
+  }
+
+  const handleImagenArchivo = (e) => {
+    const archivo = e.target.files[0]
+    if (!archivo) return
+
+    const reader = new FileReader()
+    reader.onloadend = () => {
+      setImagen(reader.result)
+    }
+    reader.readAsDataURL(archivo)
   }
 
   const agregarALista = (productoBase) => {
@@ -149,10 +177,12 @@ function App() {
       <div style={{ marginBottom: '1rem' }}>
         <input placeholder="Nombre" value={producto} onChange={e => setProducto(e.target.value)} onKeyPress={handleKeyPress} />
         <input type="number" placeholder="Precio (€)" value={precio} onChange={e => setPrecio(e.target.value)} onKeyPress={handleKeyPress} />
-        <input placeholder="Imagen (ej: manzana.png)" value={imagen} onChange={e => setImagen(e.target.value)} />
+        <input placeholder="URL de imagen (opcional)" value={imagen} onChange={e => setImagen(e.target.value)} />
+        <input type="file" accept="image/*" onChange={handleImagenArchivo} />
         <input placeholder="Local de compra" value={local} onChange={e => setLocal(e.target.value)} />
         <input type="date" value={fecha} onChange={e => setFecha(e.target.value)} />
         <input type="number" placeholder="Unidades" value={unidades} onChange={e => setUnidades(e.target.value)} />
+
         <select value={categoria} onChange={e => setCategoria(e.target.value)}>
           <option value="">Selecciona categoría</option>
           {categoriasPredefinidas.map((cat, idx) => (
@@ -161,6 +191,12 @@ function App() {
             </option>
           ))}
         </select>
+        <input
+          placeholder="...o escribe una nueva categoría"
+          value={nuevaCategoria}
+          onChange={e => setNuevaCategoria(e.target.value)}
+        />
+
         <button onClick={agregarABase} style={{
           marginLeft: '0.5rem',
           borderRadius: '30px',
@@ -200,7 +236,7 @@ function App() {
                   {productosFiltrados.map((item, index) => (
                     <li key={index} style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center' }}>
                       {item.imagen && (
-                        <img src={`/imagenes/${item.imagen}`} alt="img" style={{ width: '40px', height: '40px', marginRight: '1rem' }} />
+                        <img src={item.imagen.startsWith('data:image') ? item.imagen : `/imagenes/${item.imagen}`} alt="img" style={{ width: '40px', height: '40px', marginRight: '1rem' }} />
                       )}
                       <div style={{ flex: 1 }}>
                         <strong>{item.nombre}</strong> - {item.precio.toFixed(2)} € - {item.unidades} u. - {item.categoria}
