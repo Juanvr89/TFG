@@ -67,7 +67,6 @@ function App() {
       unidadesNumericas <= 0
     ) return
 
-    // Si es nueva categoría, la añadimos
     if (nuevaCategoria.trim() !== '' && !categoriasPredefinidas.includes(nuevaCategoria.trim())) {
       const nuevas = [...categoriasPredefinidas, nuevaCategoria.trim()]
       setCategoriasPredefinidas(nuevas)
@@ -233,22 +232,34 @@ function App() {
               <div key={idx}>
                 <h3>{cat.charAt(0).toUpperCase() + cat.slice(1)}</h3>
                 <ul>
-                  {productosFiltrados.map((item, index) => (
-                    <li key={index} style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center' }}>
-                      {item.imagen && (
-                        <img src={item.imagen.startsWith('data:image') ? item.imagen : `/imagenes/${item.imagen}`} alt="img" style={{ width: '40px', height: '40px', marginRight: '1rem' }} />
-                      )}
-                      <div style={{ flex: 1 }}>
-                        <strong>{item.nombre}</strong> - {item.precio.toFixed(2)} € - {item.unidades} u. - {item.categoria}
-                        <div style={{ fontSize: '0.8rem', color: '#666' }}>
-                          {item.local} - {item.fecha}
+                  {productosFiltrados.map((item) => {
+                    const realIndex = baseProductos.findIndex(p =>
+                      p.nombre === item.nombre &&
+                      p.precio === item.precio &&
+                      p.categoria === item.categoria &&
+                      p.fecha === item.fecha &&
+                      p.local === item.local &&
+                      p.unidades === item.unidades &&
+                      p.imagen === item.imagen
+                    )
+
+                    return (
+                      <li key={realIndex} style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center' }}>
+                        {item.imagen && (
+                          <img src={item.imagen.startsWith('data:image') ? item.imagen : `/imagenes/${item.imagen}`} alt="img" style={{ width: '40px', height: '40px', marginRight: '1rem' }} />
+                        )}
+                        <div style={{ flex: 1 }}>
+                          <strong>{item.nombre}</strong> - {item.precio.toFixed(2)} € - {item.unidades} u. - {item.categoria}
+                          <div style={{ fontSize: '0.8rem', color: '#666' }}>
+                            {item.local} - {item.fecha}
+                          </div>
                         </div>
-                      </div>
-                      <button onClick={() => agregarALista(item)} style={{ marginLeft: '0.5rem' }}>🛒</button>
-                      <button onClick={() => editarProductoBase(index)} style={{ marginLeft: '0.5rem' }}>✏️</button>
-                      <button onClick={() => eliminarProductoBase(index)} style={{ marginLeft: '0.5rem' }}>🗑️</button>
-                    </li>
-                  ))}
+                        <button onClick={() => agregarALista(item)} style={{ marginLeft: '0.5rem' }}>🛒</button>
+                        <button onClick={() => editarProductoBase(realIndex)} style={{ marginLeft: '0.5rem' }}>✏️</button>
+                        <button onClick={() => eliminarProductoBase(realIndex)} style={{ marginLeft: '0.5rem' }}>🗑️</button>
+                      </li>
+                    )
+                  })}
                 </ul>
               </div>
             )
