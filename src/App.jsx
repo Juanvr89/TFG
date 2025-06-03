@@ -90,7 +90,6 @@ function App() {
       copia[editarIndex] = nuevoProducto
       setBaseProductos(copia)
       setEditarIndex(null)
-
       toast.info('Producto modificado ✏️', {
         position: 'top-center',
         autoClose: 2500,
@@ -102,7 +101,6 @@ function App() {
       })
     } else {
       setBaseProductos([...baseProductos, nuevoProducto])
-
       toast.success('Producto añadido! ☺️', {
         position: 'top-center',
         autoClose: 2500,
@@ -141,6 +139,15 @@ function App() {
 
   const agregarALista = (productoBase) => {
     setLista([...lista, productoBase])
+    toast.success(`Añadido a lista: ${productoBase.nombre}`, {
+      position: 'top-center',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'light',
+    })
   }
 
   const eliminarProductoLista = (index) => {
@@ -149,7 +156,6 @@ function App() {
 
   const eliminarProductoBase = (index) => {
     setBaseProductos(baseProductos.filter((_, i) => i !== index))
-
     toast.error('Chao pescao! 🗑️', {
       position: 'top-center',
       autoClose: 2500,
@@ -192,6 +198,47 @@ function App() {
 
   const borrarListaCompleta = () => {
     setLista([])
+  }
+
+  // NUEVAS FUNCIONES para el check verde/rojo y quitar de lista desde base
+  // Comprueba si producto está en la lista (comparando nombre+precio+categoria+etc)
+  const estaEnLista = (productoBase) => {
+    return lista.some(item =>
+      item.nombre === productoBase.nombre &&
+      item.precio === productoBase.precio &&
+      item.categoria === productoBase.categoria &&
+      item.fecha === productoBase.fecha &&
+      item.local === productoBase.local &&
+      item.unidades === productoBase.unidades &&
+      item.imagen === productoBase.imagen
+    )
+  }
+
+  // Eliminar producto de la lista por coincidencia total
+  const quitarDeLista = (productoBase) => {
+    const index = lista.findIndex(item =>
+      item.nombre === productoBase.nombre &&
+      item.precio === productoBase.precio &&
+      item.categoria === productoBase.categoria &&
+      item.fecha === productoBase.fecha &&
+      item.local === productoBase.local &&
+      item.unidades === productoBase.unidades &&
+      item.imagen === productoBase.imagen
+    )
+    if (index !== -1) {
+      const nuevaLista = [...lista]
+      nuevaLista.splice(index, 1)
+      setLista(nuevaLista)
+      toast.error(`Eliminado de lista: ${productoBase.nombre}`, {
+        position: 'top-center',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'light',
+      })
+    }
   }
 
   return (
@@ -276,6 +323,8 @@ function App() {
                       p.imagen === item.imagen
                     )
 
+                    const enLista = estaEnLista(item)
+
                     return (
                       <li key={realIndex} style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center' }}>
                         {item.imagen && (
@@ -287,7 +336,29 @@ function App() {
                             {item.local} - {item.fecha}
                           </div>
                         </div>
-                        <button onClick={() => agregarALista(item)} style={{ marginLeft: '0.5rem' }}>🛒</button>
+
+                        {enLista ? (
+                          <>
+                            <span title="Ya en la lista" style={{ color: 'green', fontSize: '1.5rem', cursor: 'default' }}>✅</span>
+                            <button
+                              title="Quitar de la lista"
+                              onClick={() => quitarDeLista(item)}
+                              style={{
+                                marginLeft: '0.5rem',
+                                fontSize: '1.5rem',
+                                backgroundColor: 'transparent',
+                                border: 'none',
+                                color: 'red',
+                                cursor: 'pointer',
+                                lineHeight: '1'
+                              }}
+                            >
+                              ❌
+                            </button>
+                          </>
+                        ) : (
+                          <button onClick={() => agregarALista(item)} style={{ marginLeft: '0.5rem' }}>🛒</button>
+                        )}
                         <button onClick={() => editarProductoBase(realIndex)} style={{ marginLeft: '0.5rem' }}>✏️</button>
                         <button onClick={() => eliminarProductoBase(realIndex)} style={{ marginLeft: '0.5rem' }}>🗑️</button>
                       </li>
@@ -303,60 +374,45 @@ function App() {
       {vistaActual === 'lista' && (
         <>
           <h2>🛒 Lista de la compra</h2>
-          <ul>
-            {lista.map((item, index) => (
-              <li key={index}>
-                {item.nombre} - {item.precio.toFixed(2)} € x {item.unidades || 1}
-                <button onClick={() => eliminarProductoLista(index)} style={{ marginLeft: '0.5rem' }}>🗑️</button>
-              </li>
-            ))}
-          </ul>
-
-          <p style={{ fontWeight: 'bold' }}>
-            Total: {lista.reduce((acc, item) => acc + item.precio * (item.unidades || 1), 0).toFixed(2)} €
-          </p>
-
-          <button onClick={compraRealizada} style={{
-            marginTop: '1rem',
-            backgroundColor: '#4CAF50',
-            color: 'white',
-            padding: '0.5rem 1rem',
-            border: 'none',
-            borderRadius: '30px',
-            marginRight: '1rem',
-            cursor: 'pointer'
-          }}>
-            ✅ Compra realizada
-          </button>
-
-          <button onClick={borrarListaCompleta} style={{
-            marginTop: '1rem',
-            backgroundColor: '#f44336',
-            color: 'white',
-            padding: '0.5rem 1rem',
-            border: 'none',
-            borderRadius: '30px',
-            cursor: 'pointer'
-          }}>
-            🗑️ Borrar toda la lista
-          </button>
+          {lista.length === 0 ? (
+            <p>No hay productos en la lista.</p>
+          ) : (
+            <ul>
+              {lista.map((item, i) => (
+                <li key={i} style={{ marginBottom: '0.5rem' }}>
+                  {item.nombre} - {item.precio.toFixed(2)} € - {item.unidades} u.
+                  <button onClick={() => eliminarProductoLista(i)} style={{ marginLeft: '1rem' }}>Eliminar</button>
+                </li>
+              ))}
+            </ul>
+          )}
+          <button onClick={compraRealizada} disabled={lista.length === 0}>Comprar 🛍️</button>
+          <button onClick={borrarListaCompleta} disabled={lista.length === 0} style={{ marginLeft: '1rem' }}>Borrar lista ❌</button>
         </>
       )}
 
       {vistaActual === 'historial' && (
         <>
           <h2>📜 Historial de compras</h2>
-          {historial.map((compra, index) => (
-            <div key={index} style={{ marginBottom: '1rem', borderBottom: '1px solid #ccc', paddingBottom: '0.5rem' }}>
-              <strong>{compra.fecha}</strong>
-              <ul>
-                {compra.productos.map((p, i) => (
-                  <li key={i}>{p.nombre} - {p.precio.toFixed(2)} € x {p.unidades}</li>
-                ))}
-              </ul>
-              <p>Total: {compra.total.toFixed(2)} €</p>
-            </div>
-          ))}
+          {historial.length === 0 ? (
+            <p>No hay compras registradas.</p>
+          ) : (
+            <ul>
+              {historial.map((compra, i) => (
+                <li key={i} style={{ marginBottom: '1rem' }}>
+                  <strong>{compra.fecha}</strong>
+                  <ul>
+                    {compra.productos.map((prod, idx) => (
+                      <li key={idx}>
+                        {prod.nombre} - {prod.precio.toFixed(2)} € - {prod.unidades} u.
+                      </li>
+                    ))}
+                  </ul>
+                  <div><strong>Total: </strong>{compra.total.toFixed(2)} €</div>
+                </li>
+              ))}
+            </ul>
+          )}
         </>
       )}
     </div>
