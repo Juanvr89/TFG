@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const categoriasPredefinidasIniciales = [
   'bebidas',
@@ -88,8 +90,28 @@ function App() {
       copia[editarIndex] = nuevoProducto
       setBaseProductos(copia)
       setEditarIndex(null)
+
+      toast.info('Producto modificado ✏️', {
+        position: 'top-center',
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'light',
+      })
     } else {
       setBaseProductos([...baseProductos, nuevoProducto])
+
+      toast.success('Producto añadido! ☺️', {
+        position: 'top-center',
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'light',
+      })
     }
 
     setProducto('')
@@ -127,6 +149,16 @@ function App() {
 
   const eliminarProductoBase = (index) => {
     setBaseProductos(baseProductos.filter((_, i) => i !== index))
+
+    toast.error('Chao pescao! 🗑️', {
+      position: 'top-center',
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'light',
+    })
   }
 
   const editarProductoBase = (index) => {
@@ -164,6 +196,7 @@ function App() {
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
+      <ToastContainer />
       <h1>🍽️ Come y Calla</h1>
 
       <div style={{ marginBottom: '1rem' }}>
