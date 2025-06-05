@@ -31,6 +31,9 @@ function App() {
   const [vistaActual, setVistaActual] = useState('lista')
   const [editarIndex, setEditarIndex] = useState(null)
   const [busqueda, setBusqueda] = useState('')
+  const [hoveredIndex, setHoveredIndex] = useState(null)
+  
+
 
   useEffect(() => {
     const datosLista = localStorage.getItem('listaCompra')
@@ -326,42 +329,61 @@ function App() {
                     const enLista = estaEnLista(item)
 
                     return (
-                      <li key={realIndex} style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center' }}>
-                        {item.imagen && (
-                          <img src={item.imagen.startsWith('data:image') ? item.imagen : `/imagenes/${item.imagen}`} alt="img" style={{ width: '40px', height: '40px', marginRight: '1rem' }} />
-                        )}
-                        <div style={{ flex: 1 }}>
-                          <strong>{item.nombre}</strong> - {item.precio.toFixed(2)} € - {item.unidades} u. - {item.categoria}
-                          <div style={{ fontSize: '0.8rem', color: '#666' }}>
-                            {item.local} - {item.fecha}
-                          </div>
+                      <li
+                      key={realIndex}
+                      onMouseEnter={() => setHoveredIndex(realIndex)}
+                      onMouseLeave={() => setHoveredIndex(null)}
+                      style={{
+                        marginBottom: '0.5rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        transition: 'transform 0.2s',
+                        transform: hoveredIndex === realIndex ? 'scale(1.07)' : 'scale(1)',
+                        backgroundColor: '#4a4a4a',
+                        padding: '0.5rem',
+                        borderRadius: '8px'
+                      }}
+                    >
+                      {item.imagen && (
+                        <img
+                          src={item.imagen.startsWith('data:image') ? item.imagen : `/imagenes/${item.imagen}`}
+                          alt="img"
+                          style={{ width: '40px', height: '40px', marginRight: '1rem' }}
+                        />
+                      )}
+                      <div style={{ flex: 1 }}>
+                        <strong>{item.nombre}</strong> - {item.precio.toFixed(2)} € - {item.unidades} u. - {item.categoria}
+                        <div style={{ fontSize: '0.8rem', color: '#666' }}>
+                          {item.local} - {item.fecha}
                         </div>
-
-                        {enLista ? (
-                          <>
-                            <span title="Ya en la lista" style={{ color: 'green', fontSize: '1.5rem', cursor: 'default' }}>✅</span>
-                            <button
-                              title="Quitar de la lista"
-                              onClick={() => quitarDeLista(item)}
-                              style={{
-                                marginLeft: '0.5rem',
-                                fontSize: '1.5rem',
-                                backgroundColor: 'transparent',
-                                border: 'none',
-                                color: 'red',
-                                cursor: 'pointer',
-                                lineHeight: '1'
-                              }}
-                            >
-                              ❌
-                            </button>
-                          </>
-                        ) : (
-                          <button onClick={() => agregarALista(item)} style={{ marginLeft: '0.5rem' }}>🛒</button>
-                        )}
-                        <button onClick={() => editarProductoBase(realIndex)} style={{ marginLeft: '0.5rem' }}>✏️</button>
-                        <button onClick={() => eliminarProductoBase(realIndex)} style={{ marginLeft: '0.5rem' }}>🗑️</button>
-                      </li>
+                      </div>
+                    
+                      {enLista ? (
+                        <>
+                          <span title="Ya en la lista" style={{ color: 'green', fontSize: '1.5rem', cursor: 'default' }}>✅</span>
+                          <button
+                            title="Quitar de la lista"
+                            onClick={() => quitarDeLista(item)}
+                            style={{
+                              marginLeft: '0.5rem',
+                              fontSize: '1.5rem',
+                              backgroundColor: 'transparent',
+                              border: 'none',
+                              color: 'red',
+                              cursor: 'pointer',
+                              lineHeight: '1'
+                            }}
+                          >
+                            ❌
+                          </button>
+                        </>
+                      ) : (
+                        <button onClick={() => agregarALista(item)} style={{ marginLeft: '0.5rem' }}>🛒</button>
+                      )}
+                      <button onClick={() => editarProductoBase(realIndex)} style={{ marginLeft: '0.5rem' }}>✏️</button>
+                      <button onClick={() => eliminarProductoBase(realIndex)} style={{ marginLeft: '0.5rem' }}>🗑️</button>
+                    </li>
+                    
                     )
                   })}
                 </ul>
@@ -378,13 +400,48 @@ function App() {
             <p>No hay productos en la lista.</p>
           ) : (
             <ul>
-              {lista.map((item, i) => (
-                <li key={i} style={{ marginBottom: '0.5rem' }}>
-                  {item.nombre} - {item.precio.toFixed(2)} € - {item.unidades} u.
-                  <button onClick={() => eliminarProductoLista(i)} style={{ marginLeft: '1rem' }}>Eliminar</button>
-                </li>
-              ))}
-            </ul>
+  {lista.map((item, i) => (
+    <li
+      key={i}
+      onMouseEnter={() => setHoveredIndex(i)}
+      onMouseLeave={() => setHoveredIndex(null)}
+      style={{
+        marginBottom: '0.5rem',
+        padding: '0.5rem',
+        borderRadius: '8px',
+        backgroundColor: '#4a4a4a',
+        display: 'flex',
+        alignItems: 'center',
+        transition: 'transform 0.2s',
+        transform: hoveredIndex === i ? 'scale(1.05)' : 'scale(1)'
+      }}
+    >
+      {item.imagen && (
+        <img
+          src={item.imagen.startsWith('data:image') ? item.imagen : `/imagenes/${item.imagen}`}
+          alt="img"
+          style={{ width: '40px', height: '40px', marginRight: '1rem', borderRadius: '4px' }}
+        />
+      )}
+      <span style={{ flex: 1 }}>
+        {item.nombre} - {item.precio.toFixed(2)} € - {item.unidades} u.
+      </span>
+      <button
+        onClick={() => eliminarProductoLista(i)}
+        style={{
+          marginLeft: '1rem',
+          backgroundColor: 'transparent',
+          border: 'none',
+          color: 'red',
+          cursor: 'pointer'
+        }}
+      >
+        ❌
+      </button>
+    </li>
+  ))}
+</ul>
+
           )}
           <button onClick={compraRealizada} disabled={lista.length === 0}>Comprar 🛍️</button>
           <button onClick={borrarListaCompleta} disabled={lista.length === 0} style={{ marginLeft: '1rem' }}>Borrar lista ❌</button>
