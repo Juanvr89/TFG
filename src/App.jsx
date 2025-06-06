@@ -199,6 +199,55 @@ function App() {
     setLista([])
   }
 
+  const eliminarCompraPorFecha = (fecha) => {
+    const nuevoHistorial = historial.filter(compra => compra.fecha !== fecha)
+    setHistorial(nuevoHistorial)
+    toast.error('Compra eliminada del historial 🗑️', {
+      position: 'top-center',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'light',
+    })
+  }
+  
+  const obtenerTotalesResumen = () => {
+    const ahora = new Date()
+    const unaSemanaAntes = new Date(ahora)
+    unaSemanaAntes.setDate(ahora.getDate() - 7)
+  
+    const inicioMes = new Date(ahora.getFullYear(), ahora.getMonth(), 1)
+    const inicioAno = new Date(ahora.getFullYear(), 0, 1)
+  
+    let totalSemana = 0
+    let totalMes = 0
+    let totalAno = 0
+  
+    historial.forEach((compra) => {
+      const fechaCompra = new Date(compra.fecha)
+  
+      if (fechaCompra >= unaSemanaAntes) {
+        totalSemana += compra.total
+      }
+  
+      if (fechaCompra >= inicioMes) {
+        totalMes += compra.total
+      }
+  
+      if (fechaCompra >= inicioAno) {
+        totalAno += compra.total
+      }
+    })
+  
+    return {
+      semana: totalSemana,
+      mes: totalMes,
+      ano: totalAno
+    }
+  }
+  
   const borrarListaCompleta = () => {
     setLista([])
   }
@@ -247,7 +296,14 @@ function App() {
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
       <ToastContainer />
-      <h1>🍽️ Come y Calla</h1>
+      <div style={{ padding: '1rem' }}>
+  <img 
+    src="/imagenes/1-logo.png" 
+    alt="" 
+    style={{ display: 'block', margin: '0 auto', maxWidth: '400px', height: 'auto' }} 
+  />
+</div>
+
 
       <div style={{ marginBottom: '1rem' }}>
         <button onClick={() => setVistaActual('lista')}>🛒 Ver Lista</button>
@@ -448,30 +504,74 @@ function App() {
         </>
       )}
 
-      {vistaActual === 'historial' && (
-        <>
-          <h2>📜 Historial de compras</h2>
-          {historial.length === 0 ? (
-            <p>No hay compras registradas.</p>
-          ) : (
-            <ul>
-              {historial.map((compra, i) => (
-                <li key={i} style={{ marginBottom: '1rem' }}>
-                  <strong>{compra.fecha}</strong>
-                  <ul>
-                    {compra.productos.map((prod, idx) => (
-                      <li key={idx}>
-                        {prod.nombre} - {prod.precio.toFixed(2)} € - {prod.unidades} u.
-                      </li>
-                    ))}
-                  </ul>
-                  <div><strong>Total: </strong>{compra.total.toFixed(2)} €</div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </>
+{vistaActual === 'historial' && (
+  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+    {/* HISTORIAL A LA IZQUIERDA */}
+    <div style={{ width: '70%' }}>
+      <h2>📜 Historial de compras</h2>
+      {historial.length === 0 ? (
+        <p>No hay compras registradas.</p>
+      ) : (
+        <ul>
+          {historial.map((compra, i) => (
+            <li key={i} style={{ marginBottom: '1rem', borderBottom: '1px solid #ccc', paddingBottom: '1rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <strong>{compra.fecha}</strong>
+                <button
+                  onClick={() => eliminarCompraPorFecha(compra.fecha)}
+                  style={{
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    color: 'red',
+                    fontSize: '1.2rem',
+                    cursor: 'pointer'
+                  }}
+                  title="Eliminar esta compra"
+                >
+                  🗑️
+                </button>
+              </div>
+
+              <ul>
+                {compra.productos.map((prod, idx) => (
+                  <li key={idx}>
+                    {prod.nombre} - {prod.precio.toFixed(2)} € - {prod.unidades} u.
+                  </li>
+                ))}
+              </ul>
+              <div
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: '1.1rem',
+                  textDecoration: 'underline',
+                  marginTop: '0.5rem'
+                }}
+              >
+                Total: {compra.total.toFixed(2)} €
+              </div>
+            </li>
+          ))}
+        </ul>
       )}
+    </div>
+
+    {/* RESUMEN A LA DERECHA */}
+    <div style={{ width: '28%', padding: '1rem', borderLeft: '2px solid #eee' }}>
+      <h3 style={{ marginBottom: '1rem' }}>🧾 Resumen</h3>
+      {(() => {
+        const totales = obtenerTotalesResumen()
+        return (
+          <>
+            <p><strong>🗓️ Esta semana:</strong> {totales.semana.toFixed(2)} €</p>
+            <p><strong>📅 Este mes:</strong> {totales.mes.toFixed(2)} €</p>
+            <p><strong>📆 Este año:</strong> {totales.ano.toFixed(2)} €</p>
+          </>
+        )
+      })()}
+    </div>
+  </div>
+)}
+
     </div>
   )
 }
