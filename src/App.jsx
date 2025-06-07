@@ -305,11 +305,27 @@ function App() {
 </div>
 
 
-      <div style={{ marginBottom: '1rem' }}>
-        <button onClick={() => setVistaActual('lista')}>🛒 Ver Lista</button>
-        <button onClick={() => setVistaActual('base')}>📦 Ver productos disponibles</button>
-        <button onClick={() => setVistaActual('historial')}>📜 Historial de compras</button>
-      </div>
+<div style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'center', gap: '10rem' }}>
+  <img
+    src="/imagenes/lista.png"
+    alt="Ver Lista"
+    onClick={() => setVistaActual('lista')}
+    style={{ width: 'auto', height: '203px', cursor: 'pointer' }}
+  />
+  <img
+    src="/imagenes/productos.png"
+    alt="Ver productos"
+    onClick={() => setVistaActual('base')}
+    style={{ width: 'auto', height: '203px', cursor: 'pointer' }}
+  />
+  <img
+    src="/imagenes/historial.png"
+    alt="Ver historial"
+    onClick={() => setVistaActual('historial')}
+    style={{ width: 'auto', height: '203px', cursor: 'pointer' }}
+  />
+</div>
+
 
       <h2>{editarIndex !== null ? '✏️ Editar producto' : '➕ Añadir a base de productos'}</h2>
       <div style={{ marginBottom: '1rem' }}>
