@@ -1,4 +1,6 @@
 
+![Aspose Words ad59ae15-4010-4a83-a192-0dc170b81007 001](https://github.com/user-attachments/assets/9a485b34-a579-4139-8859-c42dd973aab0)
+
 **\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_Índice\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
 
 1. **Resumen del documento**
@@ -86,7 +88,8 @@ Como he dicho, mi proyecto se centra en el desarrollo de una aplicación web par
 
 ## **Aplicaciones estudiadas**
 
--    **Bring!**
+-   ![Aspose Words ad59ae15-4010-4a83-a192-0dc170b81007 004](https://github.com/user-attachments/assets/7ffb30e3-f244-4855-bf43-5714c7384e85)
+ **Bring!**
 
 Bring! Es una de las referencias más conocidas para listas de la compra compartidas. Su punto fuerte reside en una interfaz cuidada y moderna. Ofrece funciones como la creación de listas colaborativas en tiempo real, incluir imágenes asociadas a productos y sugerencias personalizadas en base a compras anteriores.
 
@@ -94,7 +97,8 @@ Uno de los aspectos más valorados de Bring! y que se ha tomado como referencia 
 
 En su contra, se podría decir que al principio parece un poco caótica, y para alguien de edad<a name="_page4_x0.00_y841.89"></a> avanzada o que no tenga experiencia en uso de aplicaciones, le costará entenderla
 
--    **Out of Milk**
+-   ![Aspose Words ad59ae15-4010-4a83-a192-0dc170b81007 005](https://github.com/user-attachments/assets/64862856-4680-4dd1-ab00-eec75cdf0390)
+ **Out of Milk**
 
 Out of Milk es otra aplicación muy conocida en este ámbito. (Es importante mencionar que no la he podido instalar, según Playstore porque no está disponible en mi zona… asi que solo hablaré de lo que he 
 
@@ -106,7 +110,8 @@ Aunque esta aplicación incorpora algunas características más avanzadas, como 
 
 Las quejas más comunes son que parece un poco anticuada, a veces causa problemas de sincronización y está algo abandonada. Como dije antes, no pude probarla pero me informé sobre ella, asique esto es meramente especulativo.
 
--    **Google Keep**
+-    ![Aspose Words ad59ae15-4010-4a83-a192-0dc170b81007 006](https://github.com/user-attachments/assets/1e617722-849a-40ab-9311-8daf54c85b10)
+**Google Keep**
 
 Yo diría que es de las mas usadas. No es una lista de la compra, si no un block de notas de Google con funcionalidades suficientes como para convertirse en una aplicación que vale para ello. Permite crear notas y listas compartidas, establecer recordatorios, añadir etiquetas, colores y sincronizar todo automáticamente en la nube.
 
@@ -118,7 +123,8 @@ Asimismo, el uso de colores y etiquetas como sistema de organización visual me 
 
 Al final, al no ser una aplicación destinada a ello, carece de opciones importantes como categorías, precios etc… y tan solo vale para salir de algun apuro, o alguna compra esporadica
 
--    **Softlist**
+-   ![Aspose Words ad59ae15-4010-4a83-a192-0dc170b81007 007](https://github.com/user-attachments/assets/e8b90734-9edb-44ef-b324-b5d2ff641559)
+ **Softlist**
 
 Softlist es la más sencilla y menos conocida, y para mi, la más interesantes (y la que actualmente uso), especialmente en lo que respecta a la eficiencia y reutilización. Su funcionalidad más destacada es la posibilidad de crear plantillas o listas predefinidas, lo cual resulta útil para personas que suelen comprar los mismos productos de forma periódica. Esta idea la implementaré algún día en mi aplicación dado que me parece primordial. Como dije, quiero que sea para todos los usuarios, rápida y sencilla, y esto evita perder el tiempo.
 
@@ -195,23 +201,28 @@ Los colores seleccionados son
 
 Este cambio de color tan sutil permite ver los diferentes iconos de fondo sin destacar demasiado, hace que no destaque, pero sabes que están ahi.
 
-![](Aspose.Words.ad59ae15-4010-4a83-a192-0dc170b81007.008.png)
+![Aspose Words ad59ae15-4010-4a83-a192-0dc170b81007 008](https://github.com/user-attachments/assets/052521e4-b2a4-4c01-a6a4-c539970e7bb8)
+
 
 
 
 **Para el logo**
 
-![](Aspose.Words.ad59ae15-4010-4a83-a192-0dc170b81007.009.png)
+
+![Aspose Words ad59ae15-4010-4a83-a192-0dc170b81007 009](https://github.com/user-attachments/assets/7837184c-f2eb-4a3b-acee-39b65f59be26)
+
 
 El logo, he de decir que es de invención propia. Por suerte cuento con experiencia en diseño (2d y 3d) y un bachillerato de arte que también aporta. Hago incapié en esto porque estamos en una época en la que la IA se está imponiendo en el diseño propio y es algo que me costó algo de trabajo. Partí de un icono que encontré por internet:
 
+![Aspose Words ad59ae15-4010-4a83-a192-0dc170b81007 010](https://github.com/user-attachments/assets/dcc671e6-e32f-4248-baad-47a2986c3ec8)
 A este sencillo icono, solo le tuve que implementar la mano de Mickey Mouse y una cara feliz. Me parecía sencillo y justo hacía referencia a lo que buscaba![](Aspose.Words.ad59ae15-4010-4a83-a192-0dc170b81007.010.png)
 
 Le cambié los colores. No quería usar blancos puros y los cambié por un amarillo pastel.
 
 El color más claro de toda la aplicación es el propio nombre de la aplicación, y aun así no he usado blanco. El motivo de esto es simple, el nombre tiene que destacar, pero al no querer que destaque por ser molesto, usé un blanco/amarilo hueso/pastel que creo que es una buena combinación entre el logo, y el fondo 
 
-![](Aspose.Words.ad59ae15-4010-4a83-a192-0dc170b81007.011.png)
+![Aspose Words ad59ae15-4010-4a83-a192-0dc170b81007 011](https://github.com/user-attachments/assets/29d8924d-f4fe-4984-82e0-a216878493ab)
+
 
 Todo esto acaba en un conjunto de colores que no destacan unos sobre otros. No se vé sobrecargado, y solo destacan los elementos que creo que son importantes. Como son:
 
