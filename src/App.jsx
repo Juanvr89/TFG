@@ -455,17 +455,74 @@ const disminuirCantidad = (index) => {
  }
 
  const cargarListaPredefinida = (lista) => {
-   setLista([...lista, ...lista.productos])
-   toast.success(`Lista "${lista.nombre}" cargada con ${lista.productos.length} productos`, {
-     position: 'top-center',
-     autoClose: 3000,
-     hideProgressBar: false,
-     closeOnClick: true,
-     pauseOnHover: true,
-     draggable: true,
-     theme: 'light',
-   })
- }
+  let productosAnadidos = 0
+  let productosActualizados = 0
+  
+  lista.productos.forEach(producto => {
+    // Buscar si el producto ya existe en la lista de la compra
+    const productoExistente = lista.find(item => 
+      item.nombre === producto.nombre && 
+      item.precio === producto.precio
+    )
+    
+    if (productoExistente) {
+      // Si existe, aumentar la cantidad
+      setLista(prevLista => prevLista.map(item => 
+        item.nombre === producto.nombre && item.precio === producto.precio
+          ? { ...item, cantidadEnLista: (item.cantidadEnLista || 1) + 1 }
+          : item
+      ))
+      productosActualizados++
+    } else {
+      // Si no existe, añadirlo con cantidad 1
+      setLista(prevLista => [...prevLista, { ...producto, cantidadEnLista: 1 }])
+      productosAnadidos++
+    }
+  })
+  
+  // Mostrar mensaje personalizado según lo que pasó
+  if (productosAnadidos > 0 && productosActualizados > 0) {
+    toast.success(`Lista "${lista.nombre}" cargada: ${productosAnadidos} nuevos productos, ${productosActualizados} cantidades aumentadas`, {
+      position: 'top-center',
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'light',
+    })
+  } else if (productosAnadidos > 0) {
+    toast.success(`Lista "${lista.nombre}" cargada: ${productosAnadidos} productos añadidos`, {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'light',
+    })
+  } else if (productosActualizados > 0) {
+    toast.success(`Lista "${lista.nombre}": ${productosActualizados} cantidades aumentadas`, {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'light',
+    })
+  } else {
+    toast.info(`Lista "${lista.nombre}" está vacía`, {
+      position: 'top-center',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'light',
+    })
+  }
+}
 
  const eliminarListaPredefinida = (id) => {
    const nuevasListas = listasPredefinidas.filter(lista => lista.id !== id)
@@ -601,35 +658,71 @@ const disminuirCantidad = (index) => {
              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
                {listasPredefinidas.map((lista) => (
                  <div key={lista.id} style={{
-                   backgroundColor: 'rgba(82, 82, 82, 0.74)', //fondo lista favoritos
-                   padding: '0.5rem 1rem',
-                   borderRadius: '20px',
-                   display: 'flex',
-                   alignItems: 'center',
-                   gap: '0.5rem'
-                 }}>
-                   <span
-                     onClick={() => cargarListaPredefinida(lista)}
-                     style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.25rem' }}
-                     title={`Cargar lista (${lista.productos.length} productos)`}
-                   >
-                     🗒️ {lista.nombre}
-                   </span>
-                   <button
-                     onClick={() => editarListaPredefinida(lista)}
-                     style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.8rem' }}
-                     title="Editar lista"
-                   >
-                     ✏️
-                   </button>
-                   <button
-                     onClick={() => eliminarListaPredefinida(lista.id)}
-                     style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.8rem' }}
-                     title="Eliminar lista"
-                   >
-                     🗑️
-                   </button>
-                 </div>
+                  backgroundColor: 'rgba(82, 82, 82, 0.74)',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  transition: 'transform 0.2s, backgroundColor 0.2s',
+                  cursor: 'pointer'
+                }}
+                  onMouseEnter={(e) => {
+                    e.target.style.transform = 'scale(1.05)'
+                    e.target.style.backgroundColor = 'rgba(102, 182, 255, 0.8)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.transform = 'scale(1)'
+                    e.target.style.backgroundColor = 'rgba(82, 82, 82, 0.74)'
+                  }}
+                >
+                  <span
+                    onClick={() => cargarListaPredefinida(lista)}
+                    style={{ 
+                      cursor: 'pointer', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      gap: '0.25rem',
+                      flex: 1,
+                      fontWeight: 'bold'
+                    }}
+                    title={`¡Click para añadir ${lista.productos.length} productos a tu lista de compra!`}
+                  >
+                    🛒 {lista.nombre} ({lista.productos.length})
+                  </span>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      editarListaPredefinida(lista)
+                    }}
+                    style={{ 
+                      background: 'none', 
+                      border: 'none', 
+                      cursor: 'pointer', 
+                      fontSize: '0.9rem',
+                      padding: '0.2rem'
+                    }}
+                    title="Editar lista"
+                  >
+                    ✏️
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      eliminarListaPredefinida(lista.id)
+                    }}
+                    style={{ 
+                      background: 'none', 
+                      border: 'none', 
+                      cursor: 'pointer', 
+                      fontSize: '0.9rem',
+                      padding: '0.2rem'
+                    }}
+                    title="Eliminar lista"
+                  >
+                    🗑️
+                  </button>
+                </div>
                ))}
              </div>
            </div>
