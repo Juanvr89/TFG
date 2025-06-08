@@ -1,73 +1,76 @@
-﻿**Índice \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_![](Aspose.Words.ad59ae15-4010-4a83-a192-0dc170b81007.001.png)**
 
-1. **Resumen del documento………………………………………………....**
-1. **Introducción**
-1. **Estudio del arte**
-   1. **Aplicaciones estudiadas**
-   1. **Comparativa de Funcionalidades**
-   1. **Reflexión final**
-4. **Puntos que incluir en vuestro proyecto.**
-1. **Desarrollo de la aplicación**
-1. Tecnología utilizada
-1. Colores y diseño visual
-2. **Funcionalidades principales**
-1. Creación y gestión de listas
-1. Categorías
-1. Almacenamiento local
-1. Interfaz responsiva
-3. **Pruebas y validación**
-3. **Estudio de mercado y análisis comparativo**
-3. **Mejoras del proyecto**
-5. **Conclusiones del proyecto** 
-5. **Estimación de costes y tiempo**
-5. **Glosario de términos**
-5. **Bibliografía![](Aspose.Words.ad59ae15-4010-4a83-a192-0dc170b81007.002.png)**
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_Índice\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
 
-[Link al repositorio](https://github.com/Juanvr89/TFG)
+1. **Resumen del documento**
+   
+2. -**Introducción**
+   
+3. -**Estudio del arte**
+   
+    3.1. Aplicaciones estudiadas
+   
+    3.2. Comparativa de Funcionalidades
+   
+    3.3. Reflexión final
+   
+4. **Puntos que incluir en vuestro proyecto**
+ 
+   4.1 Desarrollo de la aplicación
 
-**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_Índice\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_![ref1]**
+   -  Tecnología utilizada
+   
+   -  Colores y diseño visual
+   
+   4.2 Funcionalidades principales
+   
+   -  Creación y gestión de listas
+   
+   -  Categorías
+   
+   -  Almacenamiento local
+   
+   -  Interfaz responsiva
 
-1. [**Resumen del documento**....................................................................3](#_page2_x0.00_y841.89)
-1. [**Introducción**………………………………………………..………………………...4](#_page3_x0.00_y841.89)
-1. [**Estudio del arte**………………………………………………………………………5](#_page4_x0.00_y841.89)
-1. [Aplicaciones estudiadas………………………………………………..….5](#_page4_x0.00_y841.89)
-1. [Comparativa de Funcionalidades………………………..……………….8](#_page7_x0.00_y841.89)
-1. [Reflexión final……………………………………………………………….9](#_page8_x0.00_y841.89)
-4. [**Puntos que incluir en vuestro proyecto**……………………………………….10 **4.1**Desarrollo de la aplicación………………………………..……………...10](#_page9_x0.00_y841.89)
-1. [Tecnología utilizada………………………………..………….10](#_page9_x0.00_y841.89)
+    4.3 Pruebas y validación
+   
+    4.4 Estudio de mercado y análisis comparativo
+   
+    4.5 Mejoras del proyecto
+   
+5. **Conclusiones del proyecto**
+   
+6. **Estimación de costes y tiempo**
+   
+7. **Glosario de términos**
 
-   2. [Colores y diseño visual…………………………….………….11](#_page10_x0.00_y841.89)
-2. [Funcionalidades principales…………………………….……………….14](#_page13_x0.00_y841.89)
-1. [Creación y gestión de listas…………………………………..14](#_page13_x0.00_y841.89)
-1. [Categorías……………………………………………………...14](#_page13_x0.00_y841.89)
-1. [Almacenamiento local……………………….………………..14](#_page13_x0.00_y841.89)
-1. [Interfaz responsiva…………………………..………………...14](#_page13_x0.00_y841.89)
-3. [Pruebas y validación……………………………………………………...15](#_page14_x0.00_y841.89)
-4. [Estudio de mercado y análisis comparativo…………………………...15](#_page14_x0.00_y841.89)
-4. [Mejoras del proyecto……………………………………………………..15](#_page14_x0.00_y841.89)
-5. [**Conclusiones del proyecto**………………………………………………..……..17](#_page16_x0.00_y841.89)
-6. [**Estimación de costes y tiempo**……………………………..…………………..19](#_page18_x0.00_y841.89)
-6. [**Glosario de términos**………………………………………..…………………….21](#_page20_x0.00_y841.89)
+    7.1 Conceptos de desarrollo
 
-[**7.1** Conceptos de desarrollo………………………………..………………..23](#_page22_x0.00_y841.89)
+8. **Bibliografía**
+   
+    8.1. Documentación oficial
+   
+    8.2. Tutoriales y Cursos
+   
+    8.3. Recursos Específicos para Funcionalidades
+   
+    8.4. Bibliotecas y Dependencias
+   
+    8.5. Plataformas de Aprendizaje
+   
+    8.6. Herramientas de Desarrollo
+   
+    8.7. Diseño
+   
+    8.8. Herramientas de Testing y Debugging
 
-8. [**Bibliografía**…………………………………………………………………...……..24](#_page23_x0.00_y841.89)
-1. [Documentación oficial…………………………………………………….24](#_page23_x0.00_y841.89)
-2. [Tutoriales y Cursos……………………………………………………….24](#_page23_x0.00_y841.89)
-2. [Recursos Específicos para Funcionalidades………………………….25](#_page24_x0.00_y841.89)
-2. [Bibliotecas y Dependencias……………………………………………..25](#_page24_x0.00_y841.89)
-2. [Plataformas de Aprendizaje………………………………….………….25](#_page24_x0.00_y841.89)
-2. [Herramientas de Desarrollo……………………………………….…….26](#_page25_x0.00_y841.89)
-2. [Diseño………………………………………………………………...…...26](#_page25_x0.00_y841.89)
-2. [Herramientas de Testing y Debugging…………………………….…..27](#_page26_x0.00_y841.89)
 
-1. <a name="_page1_x0.00_y841.89"></a>**Resumen![ref1]**
+# Resumen
 
 En este documento explicaré el desarrollo de una aplicación web que he realizado como proyecto final del ciclo formativo de Desarrollo de Aplicaciones Web. 
 
 En él describo las etapas que he seguido para llevar a cabo el proyecto, desde la idea inicial, el diseño, la programación, hasta las pruebas y la puesta en marcha. También mostraré las aplicaciones en las que me he basado y tenido la idea de mejorar, al igual que una estimación del tiempo y costes que implica hacer esta aplicación. La finalidad de este trabajo es demostrar los conocimientos adquiridos durante el ciclo y aplicarlos en un proyecto<a name="_page2_x0.00_y841.89"></a> real.
 
-2. **Introducción![ref1]**
+# Introducción
 
 ¿Por qué he decidido crear una aplicación para hacer la compra? Pues, el motivo principal y más importante es que realmente la necesito para mí mismo y la voy a usar personalmente. He probado varias aplicaciones similares, pero ninguna me terminó de convencer del todo; siempre sentía que les faltaba alguna función o característica clave que, en mi opinión, debería tener una aplicación de este tipo para ser realmente útil. Por eso, decidí crear esta aplicación, enfocándome en que cualquier usuario pueda gestionar su lista de la compra de manera sencilla y sin complicaciones.
 
@@ -75,15 +78,15 @@ Una de las cosas que más me importaban era que la aplicación fuera accesible p
 
 En este documento voy a explicar todo el proceso que seguí para desarrollar la aplicación, desde las tecnologías que utilicé hasta los pasos que di para asegurarme de que la app funcione bien y cumpla con su propósito. Así, cualquier persona interesada podrá entender cómo<a name="_page3_x0.00_y841.89"></a> se hizo y qué hay detrás del proyecto.
 
-3. **Estudio del arte![ref1]**
+# Estudio del arte
 
 Para comenzar con el desarrollo de esta aplicación, tuve que buscar aplicaciones similares, y ver que tipo de soluciones a algunas ideas que tenía usaban, que tenían integrado y fuí “picoteando” de unas y de otras. El objetivo era conocer las mejores prácticas, detectar carencias y establecer una base sobre la que construir mi propia aplicación, adaptada a mi, y a mi idea de como debería de ser.
 
 Como he dicho, mi proyecto se centra en el desarrollo de una aplicación web para la gestión de listas de la compra, la cual quería que incluyeran funciones como la creación, edición y compartición de listas, con un enfoque sencillo, accesible y colaborativo. Para ello, usé y estudié varias aplicaciones muy utilizadas por los usuarios, para coger las ideas mas interesantes  e intentar aplicarlas a mi aplicación:
 
-1. **Aplicaciones estudiadas**
+## **Aplicaciones estudiadas**
 
-   ![](Aspose.Words.ad59ae15-4010-4a83-a192-0dc170b81007.004.png)**Bring!**
+-    **Bring!**
 
 Bring! Es una de las referencias más conocidas para listas de la compra compartidas. Su punto fuerte reside en una interfaz cuidada y moderna. Ofrece funciones como la creación de listas colaborativas en tiempo real, incluir imágenes asociadas a productos y sugerencias personalizadas en base a compras anteriores.
 
@@ -91,7 +94,7 @@ Uno de los aspectos más valorados de Bring! y que se ha tomado como referencia 
 
 En su contra, se podría decir que al principio parece un poco caótica, y para alguien de edad<a name="_page4_x0.00_y841.89"></a> avanzada o que no tenga experiencia en uso de aplicaciones, le costará entenderla
 
-![](Aspose.Words.ad59ae15-4010-4a83-a192-0dc170b81007.005.png)**Out of Milk![ref1]**
+-    **Out of Milk**
 
 Out of Milk es otra aplicación muy conocida en este ámbito. (Es importante mencionar que no la he podido instalar, según Playstore porque no está disponible en mi zona… asi que solo hablaré de lo que he 
 
@@ -103,7 +106,7 @@ Aunque esta aplicación incorpora algunas características más avanzadas, como 
 
 Las quejas más comunes son que parece un poco anticuada, a veces causa problemas de sincronización y está algo abandonada. Como dije antes, no pude probarla pero me informé sobre ella, asique esto es meramente especulativo.
 
-![](Aspose.Words.ad59ae15-4010-4a83-a192-0dc170b81007.006.png)**Google Keep**
+-    **Google Keep**
 
 Yo diría que es de las mas usadas. No es una lista de la compra, si no un block de notas de Google con funcionalidades suficientes como para convertirse en una aplicación que vale para ello. Permite crear notas y listas compartidas, establecer recordatorios, añadir etiquetas, colores y sincronizar todo automáticamente en la nube.
 
@@ -111,11 +114,11 @@ Keep me ha inspirado especialmente en dos aspectos del proyecto. Por un lado, su
 
 Este equilibrio ha sido uno de los objetivos en el diseño de la aplicación desarrollada: ofrecer una herramienta que se entienda a la primera, sin renunciar a funciones clave como la multiusuario, la categorización o el filtrado de contenido.
 
-Asimismo, el uso de colores y etiquetas como sistema de organización visual me han dado algunas ideas relacionadas con la interfaz, que acabaré implementando, y por ahora he optado por una paleta única para facilitar la adaptación del diseño a distintos dispositivos![ref1]
+Asimismo, el uso de colores y etiquetas como sistema de organización visual me han dado algunas ideas relacionadas con la interfaz, que acabaré implementando, y por ahora he optado por una paleta única para facilitar la adaptación del diseño a distintos dispositivos!
 
 Al final, al no ser una aplicación destinada a ello, carece de opciones importantes como categorías, precios etc… y tan solo vale para salir de algun apuro, o alguna compra esporadica
 
-![](Aspose.Words.ad59ae15-4010-4a83-a192-0dc170b81007.007.png)**Softlist**
+-    **Softlist**
 
 Softlist es la más sencilla y menos conocida, y para mi, la más interesantes (y la que actualmente uso), especialmente en lo que respecta a la eficiencia y reutilización. Su funcionalidad más destacada es la posibilidad de crear plantillas o listas predefinidas, lo cual resulta útil para personas que suelen comprar los mismos productos de forma periódica. Esta idea la implementaré algún día en mi aplicación dado que me parece primordial. Como dije, quiero que sea para todos los usuarios, rápida y sencilla, y esto evita perder el tiempo.
 
@@ -123,7 +126,7 @@ Su simplicidad es un claro ejemplo de lo que busco en la aplicación, demuestra 
 
 Aunque he dicho que es simple y es justo lo que busco, algo más de personalización, o de diseño propio, que no modifique la estructura le vendría bien, para destacarse de las demás aplicaciones destinadas a lista de compras.
 
-2. **Comparativa de Funcionalidades![ref1]**
+##  **Comparativa de Funcionalidades**
 
 Para tener una visión más clara, a continuación una tabla comparativa con algunas de las funcionalidades más destacadas de las aplicaciones estudiadas:
 
@@ -139,7 +142,7 @@ Para tener una visión más clara, a continuación una tabla comparativa con alg
 |Reutilización / plantillas|No|No|No|Sí|Sí|
 |Escaneo de productos|No|Sí|No|No|No|
 
-**3.3Reflexión final![ref1]**
+## **Reflexión final**
 
 Tras este estudio del arte, he llegado a la conclusión de que existen múltiples soluciones que abordan la gestión de listas de la compra desde enfoques dstintos: desde aplicaciones visualmente muy atractivas y orientadas a la colaboración, hasta herramientas más funcionales y minimalistas centradas en la eficiencia.
 
@@ -147,15 +150,15 @@ No pretendo competir con estas aplicaciones, como digo, busco una propuesta prop
 
 Este estudio ha servido, por tanto, como inspiración y guía para no repetir errores que creo que otras aplicaciones tienen. A está aplicación le queda aún mucho trabajo por delante, seguramente en un par de meses no tenga nada que ver con su estado actual, pero los pilares,<a name="_page8_x0.00_y841.89"></a> bases y ejemplos los tengo claros y creo que eso es importante.
 
-4. **Puntos incluidos en el proyecto![ref1]**
+# **Puntos incluidos en el proyecto!**
 
 Aquí detallaré los principales puntos que forman parte del desarrollo de la aplicación, abarcando desde la fase inicial de diseño hasta la implementación, pruebas y evaluación final. Intentaré ofrecer una visión clara y organizada de todo el proceso (que ha sido bastante caotico) así como de las decisiones técnicas y estéticas adoptadas.
 
-1. **Desarrollo de la aplicación**
+## **Desarrollo de la aplicación**
 
 El desarrollo de la aplicación ha sido la parte más longeva del proyecto. No se han implementado todas las funcionalidades clave que plantee inicialmente por falta de tiempo y conocimientos que me quedan por adquirir. He utilizado un enfoque modular para facilitar la escalabilidad y el mantenimiento futuro, dado que no sabía cuánto se iba a prolongar. 
 
-1. **Tecnología utilizada:**
+### **Tecnología utilizada:**
 
 La aplicación la he desarrollado con HTML5, CSS3, JavaScript y React para el frontend, para asegurar la compatibilidad con todos los navegadores modernos. He optado por la API de almacenamiento local del navegador para guardar los datos del usuario de forma segura y sin necesidad de conexión a internet o servidores externos, lo que aporta privacidad y rapidez. El código lo he estructurado usando React hooks y componentes, para mantener el código limpio y mantenible.
 
@@ -164,8 +167,9 @@ La aplicación la he desarrollado con HTML5, CSS3, JavaScript y React para el fr
 - JavaScript y React: En cuanto al uso de JavaScript dudé bastante sobre qué framework usar. Lo hablé con el tutor de las prácticas, que en sus tareas usa Angular, pero durante las primeras semanas de investigación me di cuenta de que para mí sería más sencillo usar React, dado que es más simple de aprender y usar. Según me informé, es ideal para aplicaciones pequeñas o medianas, que es justo mi caso.
 - react-toastify: Para mostrar notificaciones toast al usuario cuando realiza acciones (añadir productos, eliminar, etc.)
 - localStorage API: Para persistir todos los datos (productos, listas, historial) localmente en el navegador
-- FileReader API: Para permitir al usuario subir imágenes desde su dispositivo y<a name="_page9_x0.00_y841.89"></a> convertirlas a base64
-2. **Colores y diseño visual:![ref1]**
+- FileReader API: Para permitir al usuario subir imágenes desde su dispositivo y convertirlas a base64
+  
+### **Colores y diseño visual**
 
 ` `La elección cromática en la que me he basado en una paleta de colores oscura en un principio(en un futuro se podría personalizar) básicamente porque creo que es menos cansado para la vista. Los tonos blancos a la larga pueden fatigar la vista y como quiero que sea para todas las edades, quiero que sea cómoda. Si alguien intenta hacer la lista por la noche antes de irse a dormir, puede usar la aplicación sin problemas y no se cansará ni dañará la vista antes de dormir. 
 
@@ -195,7 +199,7 @@ Este cambio de color tan sutil permite ver los diferentes iconos de fondo sin de
 
 
 
-<a name="_page10_x0.00_y841.89"></a>**Para el logo![ref1]**
+**Para el logo**
 
 ![](Aspose.Words.ad59ae15-4010-4a83-a192-0dc170b81007.009.png)
 
@@ -209,7 +213,7 @@ El color más claro de toda la aplicación es el propio nombre de la aplicación
 
 ![](Aspose.Words.ad59ae15-4010-4a83-a192-0dc170b81007.011.png)
 
-Todo esto acaba en un conjunto de colores que no destacan unos sobre otros. No se vé sobrecargado, y solo destacan los elementos que creo que son importantes. Como son:![ref1]
+Todo esto acaba en un conjunto de colores que no destacan unos sobre otros. No se vé sobrecargado, y solo destacan los elementos que creo que son importantes. Como son:
 
 - Guardar en la base de datos (En azul): Comprobando la aplicación, la opción de guardar no resaltaba lo suficiente, la puse en verde pero me parecía que destacaba demasiado, y opté por un azul neutro
 - Eliminar y añadido: el rojo y el verde destacan sobre los tonos grises pálidos, y es muy intuitivo pensar que el ✅ es para un producto añadido, y el ❌ es para eliminarlo. Se ven bien, se intuyen bien, por tanto me parecía la opción correcta.
@@ -222,37 +226,37 @@ Se pueden añadir iconos totalmente personalizables a los distintos productos. E
 
 He usado diferentes elementos para hacer algo más dinámica la aplicación. Usé Toast para añadir una ventana emergente prácticamente para cada acción que se realice. He usado esta opción porque la use durante las prácticas y me parecía que encajaba perfectamente con el estilo que estaba buscando y además ya sabía utilizarla. También añadí un efecto en el que cuando se pasaba el puntero por encima de un elemento, este aumentaba de tamaño. Pensé que simplemente sería algo más pero realmente ese efecto cambió casi por completo la aplicación haciéndola más atractiva y dinámica.
 
-2. **Funcionalidades principales![ref1]**
+# **Funcionalidades principales**
 
 La aplicación ofrece diversas funcionalidades, todas ellas orientadas a mejorar la organización de listas de la compra:
 
-1. **Creación y gestión de listas:**
+### **Creación y gestión de listas:**
 
 Permite al usuario crear listas personalizadas, añadir, editar y eliminar elementos de forma rápida y sencilla. Esta opción es prácticamente obligatoria para las aplicaciones de listas de la compra, dado que sería muy tedioso el tener que añadir, las compras más comunes y sencillas (pan, leche, papel etc)
 
-2. **Categorías:**
+### **Categorías:**
 
 Los elementos pueden ser etiquetados con diferentes categorías para facilitar la organización y búsqueda. También he implementado la opción de añadir categorías personalizadas. Las categorías personalizadas son un elemento que podría pasar desapercibido pero es increíblemente útil, dado que puede hacer que esta aplicación de lista de la compra, sea de lista de cualquier cosa, por ejemplo para la farmacia, para cosas que hay que hacer en la calle, electrodomésticos etc.
 
-3. **Almacenamiento local:**
+### **Almacenamiento local:**
 
 Si hay algo que como usuario odio, es el tener que registrarse en una aplicación. No solo por tener que registrarme, es el hecho de lo que ello conlleva. Si estás registrado, quiere decir que necesitas conexión para usarla, o que seguramente si no estás conectado, perderás funcionalidades. Hoy en dia, todo el mundo tiene acceso a internet, por esa parte no hay problema, pero ¿y si estás en un lugar sin cobertura? y si ocurre otro apagón? o simplemente hay problemas con la compañía telefónica. Esta aplicación guarda automáticamente los datos en el almacenamiento local del navegador, garantizando que toda la información esté siempre disponible sin necesidad de conexión, solo necesitando llevar el dispositivo, como si se tratase de un bloc de notas.
 
-4. **Interfaz responsiva:**
+### **Interfaz responsiva:**
 
 Adaptación automática a diferentes tamaños de pantalla. Aún no lo he podido comprobar pero teóricamente debería de funcionar por en dispositivos móviles hasta ordenadores de escritorio, para ofrecer una experiencia consistente. En un futuro, esta aplicación será únicamente para el teléfono móvil, por tanto gran parte del diseño<a name="_page13_x0.00_y841.89"></a> está pensado en su uso en vertical.
 
-3. **Pruebas y validación![ref1]**
+## **Pruebas y validación!**
 
 Durante el desarrollo, he realizado pruebas funcionales para garantizar el correcto funcionamiento de cada característica, y he documentado cada una de ellas paso a paso. Ajusté muchos aspectos de la navegación, visibilidad de los elementos y la velocidad de respuesta.
 
 En general la aplicación ha cambiado muchísimo después de muchas pruebas. Se podría decir que no tiene nada que var a como empezó, y no tiene nada que ver a como estará cuando la acabe.
 
-4. **Estudio de mercado y análisis comparativo**
+## **Estudio de mercado y análisis comparativo**
 
 Para fundamentar el desarrollo, llevé a cabo un análisis comparativo de las aplicaciones que mencioné antes, que son las mas usadas en el mercado (Bring!, Out of Milk, Google Keep y Softlist). Esto me permitió identificar buenas prácticas, funciones que no se me habian ocurrido y que estaban implementadas en estas y áreas de mejora que han servido de inspiración directa para el diseño y la funcionalidad de la aplicación que he desarrollado.
 
-5. **Mejoras del proyecto**
+## **Mejoras del proyecto**
 
 Aunque la aplicación actualmente tiene funcionalidades básicas y avanzadas, me queda mucho por añadir, la incorporación de nuevas características es algo que me ha dado mucha pena no poder enseñar en el TFG, pero es algo que implementaré, dado que como dije antes, esta aplicación es para mi, y no pararé hasta terminarla tal y como quiero. Estas mejoras son un conjunto de las necesidades propias, como de las que carecen la competencia, dado que las características que poseen unas, no las tienen otras.
 
@@ -266,7 +270,7 @@ Las funciones previstas para futuras versiones son las siguientes:
 
   La posibilidad de marcar ciertos artículos como favoritos permitirá un acceso rápido a los productos más utilizados por el usuario. Esto optimizará el proceso de creación de<a name="_page14_x0.00_y841.89"></a> nuevas listas al evitar búsquedas repetitivas.
 
-- Buscador integrado en el agregador de artículos:![ref1]
+- Buscador integrado en el agregador de artículos:![ ]
 
   Se incluirá un campo de búsqueda dinámica, es decir, actualmente poseo un buscador de artículos, el cual viene bien, pero la opción más sencilla sería que en el propio campo donde se agregan artículos a la base de datos, si el elemento que se escribe coincide con un elemento que ya existe, aparezca en un desplegable, y dicho campo, cumpliría dos opciones, buscador de artículos, y agregar artículos nuevos, simplificando la aplicación, eliminando la barra de búsqueda, y por tanto quedando mas limpia y siendo en general más usable para el usuario.
 
@@ -280,7 +284,7 @@ Las funciones previstas para futuras versiones son las siguientes:
 
 Estas funciones, aunque no están presentes en la versión actual, forman parte de la hoja de ruta del proyecto y si no todas, casi todas las acabaré implementando, y quizá algún dia con suerte, pueda lanzarla al mercado, aunque ello conlleva cambiar la filosofía que tengo de la aplicación, que en un principio es de uso personal.
 
-5. **Conclusiones![ref1]**
+# Conclusiones
 
 El desarrollo de esta aplicación me ha permitido aprender realmente lo que es la programación, y las dificultades que ello conlleva. En un futuro completaré los objetivos propuestos al inicio del TFG pero como ya he dicho, a dia de hoy carezco del tiempo y del conocimiento. A lo largo de este proceso he diseñado, implementado y evaluado una aplicación funcional que permite la gestión dinámica de productos clasificados por categorías, incluyendo opciones de creación, edición, búsqueda y eliminación, todo ello con persistencia local a través del almacenamiento en localStorage.
 
@@ -298,9 +302,9 @@ A nivel personal y académico, este proyecto ha supuesto una gran experiencia de
 
 No solo ha reforzado los conocimientos técnicos adquiridos a lo largo del grado superior, sino que ha fomentado la capacidad de planificación, resolución de problemas y toma de decisiones en un contexto de desarrollo real. Asimismo, me ha ofrecido una visión global del ciclo de vida de un software, desde la concepción de la idea hasta su implementación y prueba funcional, y ahora entiendo por que los softwares tardan tanto en recibir actualizaciones<a name="_page16_x0.00_y841.89"></a> y por que están mejorandose constantemente-
 
-En conclusión, la aplicación desarrollada, aunque no cumple con todos los objetivos funcionales y técnicos definidos al inicio, sienta una base sólida sobre la que podrían añadirse nuevas funcionalidades, como la integración con una API o la de una IA, autenticación de usuarios o almacenamiento en la nube. Además, puede servir como punto de partida para proyectos más ambiciosos.![ref1]
+En conclusión, la aplicación desarrollada, aunque no cumple con todos los objetivos funcionales y técnicos definidos al inicio, sienta una base sólida sobre la que podrían añadirse nuevas funcionalidades, como la integración con una API o la de una IA, autenticación de usuarios o almacenamiento en la nube. Además, puede servir como punto de partida para proyectos más ambiciosos.![ ]
 
-6. **Estimación de costes y tiempo![ref1]**
+# Estimación de costes y tiempo
 
 A la hora de llevar a cabo un proyecto, ( aunque en el contexto de un TFG no suele implicar un coste económico ) es fundamental realizar una estimación de costes y tiempo realista para poder calcular adecuadamente los recursos necesarios. Esta estimación no solo es útil para medir la viabilidad del proyecto, sino que también ayuda a replicarlo o escalarlo en un entorno profesional
 
@@ -324,7 +328,7 @@ El tiempo total estimado para la realización del proyecto se ha dividido en var
 
 Cabe destacar que las fases de desarrollo y documentación fueron las que más tiempo requirieron. El uso de herramientas como React aceleró el proceso de implementación, pero también implicó tiempo adicional de adaptación y depuración de errores. También he de decir y reconocer, que aunque el diseño de la interfaz, logo etc puede parecer simple, es algo<a name="_page18_x0.00_y841.89"></a> a lo que le dediqué más tiempo del debido.
 
-**Estimación de costes![ref1]**
+**Estimación de costes
 
 En términos económicos, aunque no he contratado a personal externo ni he adquirido licencias comerciales, es interesante calcular una estimación del coste teórico del proyecto en un entorno profesional. Para ello se tiene en cuenta:
 
@@ -351,7 +355,7 @@ La estimación de costes y tiempos refleja que, incluso para un proyecto de tama
 
 En el ámbito profesional, este tipo de estimaciones serviría para presupuestar el desarrollo, evaluar la rentabilidad del producto y establecer un cronograma adecuado de trabajo. En un entorno académico, como este, aporta una visión más completa del trabajo realizado y demuestra la capacidad del autor para abordar un proyecto de principio a fin con criterio técnico y organizativo.
 
-7. **Glosario de Términos![ref1]**
+# Glosario de Términos
 
 **C**
 
@@ -386,7 +390,7 @@ En el ámbito profesional, este tipo de estimaciones serviría para presupuestar
 
 **Node.js**: Entorno de ejecución de JavaScript del lado del servidor. Aunque la aplicación es del<a name="_page20_x0.00_y841.89"></a> lado cliente, Node.js es necesario para el desarrollo y gestión de dependencias.
 
-**NPM (Node Package Manager)**: Gestor de paquetes para JavaScript que permite instalar y manejar dependencias como React, react-toastify, etc.![ref1]
+**NPM (Node Package Manager)**: Gestor de paquetes para JavaScript que permite instalar y manejar dependencias como React, react-toastify, etc.
 
 **R**
 
@@ -418,7 +422,7 @@ En el ámbito profesional, este tipo de estimaciones serviría para presupuestar
 
 **Web APIs**: Interfaces de programación que proporcionan los navegadores web, como localStorage, FileReader (para leer archivos de imagen), etc.
 
-**7.1 Conceptos de Desarrollo![ref1]**
+**7.1 Conceptos de Desarrollo!
 
 **Component Lifecycle**: Ciclo de vida de un componente React que incluye montaje, actualización y desmontaje. Se maneja con useEffect en componentes funcionales.
 
@@ -434,7 +438,7 @@ En el ámbito profesional, este tipo de estimaciones serviría para presupuestar
 
 En algún punto del desarrollo del TFG he ojeado estas webs. No mentiré y diré que las he leído todas, pero si algunas de ellas, otras simplemente para agregar ciertas funcionalidades.<a name="_page22_x0.00_y841.89"></a> Conforme accedía a una de ellas, la he agregado en este apartado.
 
-8. **Bibliografia![ref1]**
+# Bibliografia
 1. **Documentación Oficial**
 
 **React**
@@ -477,7 +481,7 @@ En algún punto del desarrollo del TFG he ojeado estas webs. No mentiré y diré
 
 - https://www.w3schools.com/
 - Tutoriales<a name="_page23_x0.00_y841.89"></a> de HTML, CSS y JavaScript.
-3. **Recursos Específicos para Funcionalidades![ref1]**
+3. **Recursos Específicos para Funcionalidades
 
 **React Hooks Documentation**
 
@@ -518,7 +522,7 @@ En algún punto del desarrollo del TFG he ojeado estas webs. No mentiré y diré
 
 **GitHub**
 
-- <a name="_page24_x0.00_y841.89"></a>https://github.com/![ref1]
+- <a name="_page24_x0.00_y841.89"></a>https://github.com/
 - Para ver código de ejemplo y proyectos similares
 
 **CodePen**
@@ -561,7 +565,7 @@ En algún punto del desarrollo del TFG he ojeado estas webs. No mentiré y diré
 
 **Google<a name="_page25_x0.00_y841.89"></a> Fonts**
 
-- https://fonts.google.com/![ref1]
+- https://fonts.google.com/!
 - Fuentes web gratuitas (aunque no usadas en esta aplicación específica)
 8. **Herramientas de Testing y Debugging**
 
@@ -574,6 +578,5 @@ En algún punto del desarrollo del TFG he ojeado estas webs. No mentiré y diré
 
 - https://developer.chrome.com/docs/devtools/
 - Herramientas<a name="_page26_x0.00_y841.89"></a> de desarrollo integradas en Chrome
-[Indice](#_page1_x0.00_y841.89)
 
-[ref1]: Aspose.Words.ad59ae15-4010-4a83-a192-0dc170b81007.003.png
+
