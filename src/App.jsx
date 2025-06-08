@@ -150,17 +150,67 @@ function App() {
  }
 
  const agregarALista = (productoBase) => {
-   setLista([...lista, productoBase])
-   toast.success(`Añadido a lista: ${productoBase.nombre}`, {
-     position: 'top-center',
-     autoClose: 2000,
-     hideProgressBar: false,
-     closeOnClick: true,
-     pauseOnHover: true,
-     draggable: true,
-     theme: 'light',
-   })
- }
+  // Verificar si el producto ya existe en la lista
+  const productoExistente = lista.find(item => 
+    item.nombre === productoBase.nombre && 
+    item.precio === productoBase.precio
+  )
+  
+  if (productoExistente) {
+    // Si existe, aumentar la cantidad
+    setLista(lista.map(item => 
+      item.nombre === productoBase.nombre && item.precio === productoBase.precio
+        ? { ...item, cantidadEnLista: (item.cantidadEnLista || 1) + 1 }
+        : item
+    ))
+    toast.success(`Cantidad aumentada: ${productoBase.nombre}`, {
+      position: 'top-center',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'light',
+    })
+  } else {
+    // Si no existe, añadirlo con cantidad 1
+    setLista([...lista, { ...productoBase, cantidadEnLista: 1 }])
+    toast.success(`Añadido a lista: ${productoBase.nombre}`, {
+      position: 'top-center',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: 'light',
+    })
+  }
+}
+
+const aumentarCantidad = (index) => {
+  const nuevaLista = [...lista]
+  nuevaLista[index] = {
+    ...nuevaLista[index],
+    cantidadEnLista: (nuevaLista[index].cantidadEnLista || 1) + 1
+  }
+  setLista(nuevaLista)
+}
+
+const disminuirCantidad = (index) => {
+  const nuevaLista = [...lista]
+  const cantidadActual = nuevaLista[index].cantidadEnLista || 1
+  
+  if (cantidadActual > 1) {
+    nuevaLista[index] = {
+      ...nuevaLista[index],
+      cantidadEnLista: cantidadActual - 1
+    }
+    setLista(nuevaLista)
+  } else {
+    // Si la cantidad es 1, eliminar el producto de la lista
+    eliminarProductoLista(index)
+  }
+}
 
  const eliminarProductoLista = (index) => {
    setLista(lista.filter((_, i) => i !== index))
@@ -196,7 +246,7 @@ function App() {
    if (lista.length === 0) return
 
    const fechaCompra = new Date().toLocaleString()
-   const total = lista.reduce((acc, item) => acc + item.precio * (item.unidades || 1), 0)
+   const total = lista.reduce((acc, item) => acc + item.precio * (item.cantidadEnLista || 1), 0)
 
    const nuevaCompra = {
      fecha: fechaCompra,
@@ -505,7 +555,6 @@ function App() {
        <input type="file" accept="image/*" onChange={handleImagenArchivo} />
        <input placeholder="Local de compra" value={local} onChange={e => setLocal(e.target.value)} />
        <input type="date" value={fecha} onChange={e => setFecha(e.target.value)} />
-       <input type="number" placeholder="Unidades" value={unidades} onChange={e => setUnidades(e.target.value)} />
 
        <select value={categoria} onChange={e => setCategoria(e.target.value)}>
          <option value="">Selecciona categoría</option>
@@ -709,43 +758,95 @@ function App() {
            <ul>
              {lista.map((item, i) => (
                <li
-                 key={i}
-                 onMouseEnter={() => setHoveredIndex(i)}
-                 onMouseLeave={() => setHoveredIndex(null)}
-                 style={{
-                   marginBottom: '0.5rem',
-                   padding: '0.5rem',
-                   borderRadius: '8px',
-                   backgroundColor: '#4a4a4a',
-                   display: 'flex',
-                   alignItems: 'center',
-                   transition: 'transform 0.2s',
-                   transform: hoveredIndex === i ? 'scale(1.05)' : 'scale(1)'
-                 }}
-               >
-                 {item.imagen && (
-                   <img
-                     src={item.imagen.startsWith('data:image') ? item.imagen : `/imagenes/${item.imagen}`}
-                     alt="img"
-                     style={{ width: '40px', height: '40px', marginRight: '1rem', borderRadius: '4px' }}
-                   />
-                 )}
-                 <span style={{ flex: 1 }}>
-                   {item.nombre} - {item.precio.toFixed(2)} € - {item.unidades} u.
+               key={i}
+               onMouseEnter={() => setHoveredIndex(i)}
+               onMouseLeave={() => setHoveredIndex(null)}
+               style={{
+                 marginBottom: '0.5rem',
+                 padding: '0.5rem',
+                 borderRadius: '8px',
+                 backgroundColor: '#4a4a4a',
+                 display: 'flex',
+                 alignItems: 'center',
+                 transition: 'transform 0.2s',
+                 transform: hoveredIndex === i ? 'scale(1.05)' : 'scale(1)'
+               }}
+             >
+               {item.imagen && (
+                 <img
+                   src={item.imagen.startsWith('data:image') ? item.imagen : `/imagenes/${item.imagen}`}
+                   alt="img"
+                   style={{ width: '40px', height: '40px', marginRight: '1rem', borderRadius: '4px' }}
+                 />
+               )}
+               <span style={{ flex: 1 }}>
+                 {item.nombre} - {((item.cantidadEnLista || 1) * item.precio).toFixed(2)} € 
+                 ({item.cantidadEnLista || 1} x {item.precio.toFixed(2)} €)
+               </span>
+               
+               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                 <button
+                   onClick={() => disminuirCantidad(i)}
+                   style={{
+                     backgroundColor: 'rgba(255, 255, 255, 0.61)',
+                     border: 'none',
+                     color: 'white',
+                     cursor: 'pointer',
+                     borderRadius: '50%',
+                     width: '30px',
+                     height: '40px',
+                     fontSize: '1.2rem',
+                     display: 'flex',
+                     alignItems: 'center',
+                     justifyContent: 'center'
+                   }}
+                 >
+                   ➖​
+                 </button>
+                 
+                 <span style={{ 
+                   minWidth: '20px', 
+                   textAlign: 'center', 
+                   fontWeight: 'bold',
+                   fontSize: '1.1rem'
+                 }}>
+                   {item.cantidadEnLista || 1}
                  </span>
+                 
+                 <button
+                   onClick={() => aumentarCantidad(i)}
+                   style={{
+                     backgroundColor: 'rgba(255, 255, 255, 0.61)',
+                     border: 'none',
+                     color: 'white',
+                     cursor: 'pointer',
+                     borderRadius: '50%',
+                     width: '30px',
+                     height: '40px',
+                     fontSize: '1.2rem',
+                     display: 'flex',
+                     alignItems: 'center',
+                     justifyContent: 'center'
+                   }}
+                 >
+                   ➕
+                 </button>
+                 
                  <button
                    onClick={() => eliminarProductoLista(i)}
                    style={{
-                     marginLeft: '1rem',
+                     marginLeft: '0.5rem',
                      backgroundColor: 'transparent',
                      border: 'none',
                      color: 'red',
-                     cursor: 'pointer'
+                     cursor: 'pointer',
+                     fontSize: '1.2rem'
                    }}
                  >
                    ❌
                  </button>
-               </li>
+               </div>
+             </li>
              ))}
            </ul>
          )}
@@ -784,7 +885,8 @@ function App() {
                    <ul>
                      {compra.productos.map((prod, idx) => (
                        <li key={idx}>
-                         {prod.nombre} - {prod.precio.toFixed(2)} € - {prod.unidades} u.
+                         {prod.nombre} - {((prod.cantidadEnLista || 1) * prod.precio).toFixed(2)} € 
+                         ({prod.cantidadEnLista || 1} x {prod.precio.toFixed(2)} €)
                        </li>
                      ))}
                    </ul>
